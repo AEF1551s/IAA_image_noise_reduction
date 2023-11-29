@@ -11,5 +11,5 @@ Grupas darbs kas veikts kā kursa darbs priekšmetā "Ievads attēlu apstrādē"
 Kopā tiek realizēti 4 dažādi trokšņu noņemšanas algoritmi attēliem:
 1. Non-Local means
 2. Total variation regularization
-3. tiek izvēlēts..
+3. Gaussian blur
 4. tiek izvēlets..
