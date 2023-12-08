@@ -30,14 +30,15 @@
         {
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
-            button_algo1 = new Button();
-            button_algo2 = new Button();
-            button_algo3 = new Button();
-            button_algo4 = new Button();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             openToolStripMenuItem = new ToolStripMenuItem();
             openFileDialog1 = new OpenFileDialog();
+            algoritm_group_box = new GroupBox();
+            button_nlmeans = new Button();
+            button_gausblur = new Button();
+            button_tvreg = new Button();
+            button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             menuStrip1.SuspendLayout();
@@ -61,48 +62,12 @@
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
             // 
-            // button_algo1
-            // 
-            button_algo1.Location = new Point(940, 162);
-            button_algo1.Name = "button_algo1";
-            button_algo1.Size = new Size(212, 51);
-            button_algo1.TabIndex = 2;
-            button_algo1.Text = "algo1";
-            button_algo1.UseVisualStyleBackColor = true;
-            // 
-            // button_algo2
-            // 
-            button_algo2.Location = new Point(940, 219);
-            button_algo2.Name = "button_algo2";
-            button_algo2.Size = new Size(212, 51);
-            button_algo2.TabIndex = 3;
-            button_algo2.Text = "algo2";
-            button_algo2.UseVisualStyleBackColor = true;
-            // 
-            // button_algo3
-            // 
-            button_algo3.Location = new Point(940, 276);
-            button_algo3.Name = "button_algo3";
-            button_algo3.Size = new Size(212, 51);
-            button_algo3.TabIndex = 4;
-            button_algo3.Text = "algo3";
-            button_algo3.UseVisualStyleBackColor = true;
-            // 
-            // button_algo4
-            // 
-            button_algo4.Location = new Point(940, 333);
-            button_algo4.Name = "button_algo4";
-            button_algo4.Size = new Size(212, 51);
-            button_algo4.TabIndex = 5;
-            button_algo4.Text = "algo4";
-            button_algo4.UseVisualStyleBackColor = true;
-            // 
             // menuStrip1
             // 
             menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1164, 24);
+            menuStrip1.Size = new Size(1234, 24);
             menuStrip1.TabIndex = 6;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -124,15 +89,61 @@
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
+            // algoritm_group_box
+            // 
+            algoritm_group_box.Location = new Point(955, 177);
+            algoritm_group_box.Name = "algoritm_group_box";
+            algoritm_group_box.Size = new Size(252, 293);
+            algoritm_group_box.TabIndex = 7;
+            algoritm_group_box.TabStop = false;
+            algoritm_group_box.Text = "Algoritma parametri";
+            // 
+            // button_nlmeans
+            // 
+            button_nlmeans.Location = new Point(955, 70);
+            button_nlmeans.Name = "button_nlmeans";
+            button_nlmeans.Size = new Size(124, 46);
+            button_nlmeans.TabIndex = 8;
+            button_nlmeans.Text = "NL Means";
+            button_nlmeans.UseVisualStyleBackColor = true;
+            // 
+            // button_gausblur
+            // 
+            button_gausblur.Location = new Point(1085, 70);
+            button_gausblur.Name = "button_gausblur";
+            button_gausblur.Size = new Size(122, 46);
+            button_gausblur.TabIndex = 9;
+            button_gausblur.Text = "Gaussian blur ";
+            button_gausblur.UseVisualStyleBackColor = true;
+            // 
+            // button_tvreg
+            // 
+            button_tvreg.Location = new Point(955, 125);
+            button_tvreg.Name = "button_tvreg";
+            button_tvreg.Size = new Size(124, 46);
+            button_tvreg.TabIndex = 10;
+            button_tvreg.Text = "TV Regulation";
+            button_tvreg.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(1085, 125);
+            button4.Name = "button4";
+            button4.Size = new Size(122, 46);
+            button4.TabIndex = 11;
+            button4.Text = "button4";
+            button4.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1164, 561);
-            Controls.Add(button_algo4);
-            Controls.Add(button_algo3);
-            Controls.Add(button_algo2);
-            Controls.Add(button_algo1);
+            ClientSize = new Size(1234, 512);
+            Controls.Add(button4);
+            Controls.Add(button_tvreg);
+            Controls.Add(button_gausblur);
+            Controls.Add(button_nlmeans);
+            Controls.Add(algoritm_group_box);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(menuStrip1);
@@ -151,13 +162,14 @@
 
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
-        private Button button_algo1;
-        private Button button_algo2;
-        private Button button_algo3;
-        private Button button_algo4;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem openToolStripMenuItem;
         private OpenFileDialog openFileDialog1;
+        private GroupBox algoritm_group_box;
+        private Button button_nlmeans;
+        private Button button_gausblur;
+        private Button button_tvreg;
+        private Button button4;
     }
 }
