@@ -1,0 +1,74 @@
+using System;
+using System.Drawing;
+
+class TotalVariationDenoising
+{
+    static void Main()
+    {
+        // Load a noisy image (you need to have an image file for this example)
+        Bitmap noisyImage = new Bitmap("noisy_image.jpg");
+
+        // Convert the noisy image to a 2D array of grayscale values
+        double[,] noisyArray = ConvertToGrayscaleArray(noisyImage);
+
+        // Denoise the image using Total Variation regularization
+        double[,] denoisedArray = TotalVariationDenoise(noisyArray, 0.1, 100);
+
+        // Convert the denoised array back to a Bitmap
+        Bitmap denoisedImage = ConvertToBitmap(denoisedArray);
+
+        // Save the denoised image
+        denoisedImage.Save("denoised_image.jpg");
+    }
+
+    // Convert a Bitmap to a 2D array of grayscale values
+    static double[,] ConvertToGrayscaleArray(Bitmap image)
+    {
+        int width = image.Width;
+        int height = image.Height;
+        double[,] array = new double[width, height];
+
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                Color pixelColor = image.GetPixel(x, y);
+                double grayscaleValue = (pixelColor.R + pixelColor.G + pixelColor.B) / 3.0;
+                array[x, y] = grayscaleValue;
+            }
+        }
+
+        return array;
+    }
+
+    // Convert a 2D array of grayscale values to a Bitmap
+    static Bitmap ConvertToBitmap(double[,] array)
+    {
+        int width = array.GetLength(0);
+        int height = array.GetLength(1);
+        Bitmap image = new Bitmap(width, height);
+
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                int grayscale = (int)Math.Round(array[x, y]);
+                Color pixelColor = Color.FromArgb(grayscale, grayscale, grayscale);
+                image.SetPixel(x, y, pixelColor);
+            }
+        }
+
+        return image;
+    }
+
+    // Total Variation denoising using Chambolle's algorithm
+    static double[,] TotalVariationDenoise(double[,] input, double lambda, int iterations)
+    {
+        // Add your Total Variation denoising implementation here
+        // This could involve implementing Chambolle's algorithm or other numerical optimization methods
+        // Perform iterations to minimize the Total Variation-based objective function
+
+        // Placeholder: return the original input for now
+        return input;
+    }
+}
