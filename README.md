@@ -17,7 +17,8 @@ Kopā tiek realizēti 4 dažādi trokšņu noņemšanas algoritmi attēliem:
 NL Means algoritma blokshēma (ar iespējamu veikstpējas uzlabojumu)
 ![NLMeans_flowchart_light](https://github.com/AEF1551s/IAA_image_noise_reduction/assets/65708516/43812530-e97f-4ccf-b314-a4f716a428b3)
 
-##Ideja TotalVariationDenoise
+## Idea Total Variation Denoising 
+
 Load Noisy Image:
 
 1. Begin by loading the noisy image that you want to denoise. This image has unwanted noise that you aim to reduce while preserving important features.
