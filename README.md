@@ -19,25 +19,28 @@ Kopā tiek realizēti 4 dažādi trokšņu noņemšanas algoritmi attēliem:
 
 ## *Total Variation Denoising* algoritma galvenie soļi
 
-Load Noisy Image:
+Total Variation Denoising is a digital image processing algorithm designed to reduce noise in images while preserving important features and edges. The algorithm follows a series of key steps to achieve effective denoising.
 
-1. Begin by loading the noisy image that you want to denoise. This image has unwanted noise that you aim to reduce while preserving important features.
+1. Load Noisy Image:
+
+2. Start by loading the noisy image that contains unwanted artifacts or disturbances.
 Convert to Grayscale Array:
 
-2. Convert the noisy image to a 2D array of grayscale values. Each pixel in the array represents the intensity of the corresponding pixel in the image.
+3. Convert the noisy image into a 2D array of grayscale values. Each element in the array represents the intensity of the corresponding pixel in the original image.
 Total Variation Denoising:
 
-3. Initialize an estimate of the denoised image. This can be done by starting with the grayscale array from the noisy image.
+4. Initialize an estimate of the denoised image, often starting with the grayscale array derived from the noisy image.
+Iterative Optimization:
 
-4. Iterate through a specified number of iterations (e.g., 100 iterations):
+5. Iteratively update the estimate of the denoised image over a specified number of iterations (e.g., 100 iterations).
+Utilize an iterative algorithm, such as Chambolle's method, to minimize a cost function that includes a data fidelity term and a Total Variation regularization term.
+Total Variation Regularization:
 
-5. Update the estimate of the denoised image using an iterative algorithm like Chambolle's method. This algorithm minimizes a cost function that includes a data fidelity term and a Total Variation regularization term.
+6. The Total Variation regularization term promotes smoothness in the image, effectively suppressing noise while preserving edges and essential details.
+Convert to Bitmap:
 
-6. The Total Variation regularization term encourages smoothness in the image, suppressing noise while preserving edges and details.
-
-7. Convert to Bitmap:
-
-8. Once the denoising process is complete, convert the resulting 2D array of grayscale values back into a bitmap image.
+7. Once the denoising process is complete, convert the resulting 2D array of grayscale values back into a bitmap image format.
 Save Denoised Image:
 
-9. Save the denoised image to a file for further analysis or presentation.
+Save the denoised image to a file for further analysis, presentation, or integration into other applications.
+Total Variation Denoising is particularly valuable in applications where image clarity is crucial, such as medical imaging, computer vision, and various scientific fields. By balancing noise reduction with the preservation of image structure, this algorithm contributes to enhancing the overall visual quality of images affected by unwanted disturbances.
