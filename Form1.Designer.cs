@@ -33,8 +33,25 @@
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             openToolStripMenuItem = new ToolStripMenuItem();
+            saveToolStripMenuItem = new ToolStripMenuItem();
+            aboutToolStripMenuItem = new ToolStripMenuItem();
+            exitToolStripMenuItem = new ToolStripMenuItem();
+            pictureToolStripMenuItem = new ToolStripMenuItem();
+            logToolStripMenuItem = new ToolStripMenuItem();
+            viewToolStripMenuItem = new ToolStripMenuItem();
+            deleteToolStripMenuItem = new ToolStripMenuItem();
+            toolStripMenuItem1 = new ToolStripMenuItem();
             openFileDialog1 = new OpenFileDialog();
-            algoritm_group_box = new GroupBox();
+            nl_group_box = new GroupBox();
+            comboBox_nl_tresh = new ComboBox();
+            comboBox_nl_area = new ComboBox();
+            comboBox_nl_sigma = new ComboBox();
+            comboBox_nl_patchsize = new ComboBox();
+            label_nl_tresh = new Label();
+            label_nl_area = new Label();
+            label_nl_sigma = new Label();
+            label_nl_patchsize = new Label();
+            button_denoise_apply = new Button();
             button_nlmeans = new Button();
             button_gausblur = new Button();
             button_tvreg = new Button();
@@ -42,6 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             menuStrip1.SuspendLayout();
+            nl_group_box.SuspendLayout();
             SuspendLayout();
             // 
             // pictureBox1
@@ -64,7 +82,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, pictureToolStripMenuItem, logToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1234, 24);
@@ -73,7 +91,7 @@
             // 
             // fileToolStripMenuItem
             // 
-            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { openToolStripMenuItem });
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { openToolStripMenuItem, saveToolStripMenuItem, aboutToolStripMenuItem, exitToolStripMenuItem });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             fileToolStripMenuItem.Size = new Size(37, 20);
             fileToolStripMenuItem.Text = "File";
@@ -81,22 +99,165 @@
             // openToolStripMenuItem
             // 
             openToolStripMenuItem.Name = "openToolStripMenuItem";
-            openToolStripMenuItem.Size = new Size(103, 22);
+            openToolStripMenuItem.Size = new Size(107, 22);
             openToolStripMenuItem.Text = "Open";
             openToolStripMenuItem.Click += openToolStripMenuItem_Click;
+            // 
+            // saveToolStripMenuItem
+            // 
+            saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            saveToolStripMenuItem.Size = new Size(107, 22);
+            saveToolStripMenuItem.Text = "Save";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            aboutToolStripMenuItem.Size = new Size(107, 22);
+            aboutToolStripMenuItem.Text = "About";
+            // 
+            // exitToolStripMenuItem
+            // 
+            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            exitToolStripMenuItem.Size = new Size(107, 22);
+            exitToolStripMenuItem.Text = "Exit";
+            // 
+            // pictureToolStripMenuItem
+            // 
+            pictureToolStripMenuItem.Name = "pictureToolStripMenuItem";
+            pictureToolStripMenuItem.Size = new Size(47, 20);
+            pictureToolStripMenuItem.Text = "Reset";
+            // 
+            // logToolStripMenuItem
+            // 
+            logToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { viewToolStripMenuItem, deleteToolStripMenuItem, toolStripMenuItem1 });
+            logToolStripMenuItem.Name = "logToolStripMenuItem";
+            logToolStripMenuItem.Size = new Size(39, 20);
+            logToolStripMenuItem.Text = "Log";
+            // 
+            // viewToolStripMenuItem
+            // 
+            viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            viewToolStripMenuItem.Size = new Size(107, 22);
+            viewToolStripMenuItem.Text = "View";
+            // 
+            // deleteToolStripMenuItem
+            // 
+            deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            deleteToolStripMenuItem.Size = new Size(107, 22);
+            deleteToolStripMenuItem.Text = "Delete";
+            // 
+            // toolStripMenuItem1
+            // 
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new Size(107, 22);
             // 
             // openFileDialog1
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
-            // algoritm_group_box
+            // nl_group_box
             // 
-            algoritm_group_box.Location = new Point(955, 177);
-            algoritm_group_box.Name = "algoritm_group_box";
-            algoritm_group_box.Size = new Size(252, 293);
-            algoritm_group_box.TabIndex = 7;
-            algoritm_group_box.TabStop = false;
-            algoritm_group_box.Text = "Algoritma parametri";
+            nl_group_box.Controls.Add(comboBox_nl_tresh);
+            nl_group_box.Controls.Add(comboBox_nl_area);
+            nl_group_box.Controls.Add(comboBox_nl_sigma);
+            nl_group_box.Controls.Add(comboBox_nl_patchsize);
+            nl_group_box.Controls.Add(label_nl_tresh);
+            nl_group_box.Controls.Add(label_nl_area);
+            nl_group_box.Controls.Add(label_nl_sigma);
+            nl_group_box.Controls.Add(label_nl_patchsize);
+            nl_group_box.Location = new Point(955, 177);
+            nl_group_box.Name = "nl_group_box";
+            nl_group_box.Size = new Size(252, 248);
+            nl_group_box.TabIndex = 7;
+            nl_group_box.TabStop = false;
+            nl_group_box.Text = "Algoritma parametri";
+            nl_group_box.Visible = false;
+            // 
+            // comboBox_nl_tresh
+            // 
+            comboBox_nl_tresh.FormattingEnabled = true;
+            comboBox_nl_tresh.Items.AddRange(new object[] { "0.1", "0.2", "0.3", "0.4", "0.5", "0.6", "0.7", "0.8", "0.9", "0.10", "0.11", "0.12", "0.13", "0.14", "0.15", "0.16", "0.17", "0.18", "0.19", "0.20", "0.21", "0.22", "0.23", "0.24", "0.25", "0.26", "0.27", "0.28", "0.29", "0.30", "0.31", "0.32", "0.33", "0.34", "0.35", "0.36", "0.37", "0.38", "0.39", "0.40", "0.41", "0.42", "0.43", "0.44", "0.45", "0.46", "0.47", "0.48", "0.49", "0.50", "0.51", "0.52", "0.53", "0.54", "0.55", "0.56", "0.57", "0.58", "0.59", "0.60", "0.61", "0.62", "0.63", "0.64", "0.65", "0.66", "0.67", "0.68", "0.69", "0.70", "0.71", "0.72", "0.73", "0.74", "0.75", "0.76", "0.77", "0.78", "0.79", "0.80", "0.81", "0.82", "0.83", "0.84", "0.85", "0.86", "0.87", "0.88", "0.89", "0.90", "0.91", "0.92", "0.93", "0.94", "0.95", "0.96", "0.97", "0.98", "0.99", "0.100" });
+            comboBox_nl_tresh.Location = new Point(19, 206);
+            comboBox_nl_tresh.Name = "comboBox_nl_tresh";
+            comboBox_nl_tresh.Size = new Size(121, 23);
+            comboBox_nl_tresh.TabIndex = 7;
+            comboBox_nl_tresh.Text = "0.5";
+            // 
+            // comboBox_nl_area
+            // 
+            comboBox_nl_area.FormattingEnabled = true;
+            comboBox_nl_area.Items.AddRange(new object[] { "10", "20", "30", "40", "50", "60", "70", "80", "90", "100" });
+            comboBox_nl_area.Location = new Point(20, 151);
+            comboBox_nl_area.Name = "comboBox_nl_area";
+            comboBox_nl_area.Size = new Size(121, 23);
+            comboBox_nl_area.TabIndex = 6;
+            comboBox_nl_area.Text = "10";
+            // 
+            // comboBox_nl_sigma
+            // 
+            comboBox_nl_sigma.FormattingEnabled = true;
+            comboBox_nl_sigma.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99", "100" });
+            comboBox_nl_sigma.Location = new Point(19, 96);
+            comboBox_nl_sigma.Name = "comboBox_nl_sigma";
+            comboBox_nl_sigma.Size = new Size(121, 23);
+            comboBox_nl_sigma.TabIndex = 5;
+            comboBox_nl_sigma.Text = "1";
+            // 
+            // comboBox_nl_patchsize
+            // 
+            comboBox_nl_patchsize.FormattingEnabled = true;
+            comboBox_nl_patchsize.Items.AddRange(new object[] { "3", "5", "7", "9", "11" });
+            comboBox_nl_patchsize.Location = new Point(19, 41);
+            comboBox_nl_patchsize.Name = "comboBox_nl_patchsize";
+            comboBox_nl_patchsize.Size = new Size(121, 23);
+            comboBox_nl_patchsize.TabIndex = 4;
+            comboBox_nl_patchsize.Text = "3";
+            // 
+            // label_nl_tresh
+            // 
+            label_nl_tresh.AutoSize = true;
+            label_nl_tresh.Location = new Point(19, 188);
+            label_nl_tresh.Name = "label_nl_tresh";
+            label_nl_tresh.Size = new Size(103, 15);
+            label_nl_tresh.TabIndex = 3;
+            label_nl_tresh.Text = "Similarity Treshold";
+            // 
+            // label_nl_area
+            // 
+            label_nl_area.AutoSize = true;
+            label_nl_area.Location = new Point(19, 133);
+            label_nl_area.Name = "label_nl_area";
+            label_nl_area.Size = new Size(69, 15);
+            label_nl_area.TabIndex = 2;
+            label_nl_area.Text = "Search Area";
+            // 
+            // label_nl_sigma
+            // 
+            label_nl_sigma.AutoSize = true;
+            label_nl_sigma.Location = new Point(19, 78);
+            label_nl_sigma.Name = "label_nl_sigma";
+            label_nl_sigma.Size = new Size(40, 15);
+            label_nl_sigma.TabIndex = 1;
+            label_nl_sigma.Text = "Sigma";
+            // 
+            // label_nl_patchsize
+            // 
+            label_nl_patchsize.AutoSize = true;
+            label_nl_patchsize.Location = new Point(19, 23);
+            label_nl_patchsize.Name = "label_nl_patchsize";
+            label_nl_patchsize.Size = new Size(60, 15);
+            label_nl_patchsize.TabIndex = 0;
+            label_nl_patchsize.Text = "Patch Size";
+            // 
+            // button_denoise_apply
+            // 
+            button_denoise_apply.Enabled = false;
+            button_denoise_apply.Location = new Point(974, 447);
+            button_denoise_apply.Name = "button_denoise_apply";
+            button_denoise_apply.Size = new Size(216, 23);
+            button_denoise_apply.TabIndex = 8;
+            button_denoise_apply.Text = "Apply";
+            button_denoise_apply.UseVisualStyleBackColor = true;
             // 
             // button_nlmeans
             // 
@@ -106,6 +267,7 @@
             button_nlmeans.TabIndex = 8;
             button_nlmeans.Text = "NL Means";
             button_nlmeans.UseVisualStyleBackColor = true;
+            button_nlmeans.Click += button_nlmeans_Click;
             // 
             // button_gausblur
             // 
@@ -139,11 +301,12 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1234, 512);
+            Controls.Add(button_denoise_apply);
             Controls.Add(button4);
             Controls.Add(button_tvreg);
             Controls.Add(button_gausblur);
             Controls.Add(button_nlmeans);
-            Controls.Add(algoritm_group_box);
+            Controls.Add(nl_group_box);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(menuStrip1);
@@ -154,6 +317,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            nl_group_box.ResumeLayout(false);
+            nl_group_box.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -166,10 +331,27 @@
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem openToolStripMenuItem;
         private OpenFileDialog openFileDialog1;
-        private GroupBox algoritm_group_box;
+        private GroupBox nl_group_box;
         private Button button_nlmeans;
         private Button button_gausblur;
         private Button button_tvreg;
         private Button button4;
+        private ToolStripMenuItem saveToolStripMenuItem;
+        private ToolStripMenuItem aboutToolStripMenuItem;
+        private ToolStripMenuItem exitToolStripMenuItem;
+        private ToolStripMenuItem pictureToolStripMenuItem;
+        private Label label_nl_tresh;
+        private Label label_nl_area;
+        private Label label_nl_sigma;
+        private Label label_nl_patchsize;
+        private ComboBox comboBox_nl_patchsize;
+        private ComboBox comboBox_nl_tresh;
+        private ComboBox comboBox_nl_area;
+        private ComboBox comboBox_nl_sigma;
+        private ToolStripMenuItem logToolStripMenuItem;
+        private ToolStripMenuItem viewToolStripMenuItem;
+        private ToolStripMenuItem deleteToolStripMenuItem;
+        private ToolStripMenuItem toolStripMenuItem1;
+        private Button button_denoise_apply;
     }
 }
