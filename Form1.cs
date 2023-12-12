@@ -24,5 +24,10 @@ namespace IAA_image_noise_reduction
             ImageClass.ReadImage(bmp);
             pictureBox2.Image = ImageClass.DrawImage(ImageClass.img_original);
         }
+
+        private void button_gausblur_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

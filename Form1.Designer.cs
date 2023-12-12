@@ -115,6 +115,7 @@
             button_gausblur.TabIndex = 9;
             button_gausblur.Text = "Gaussian blur ";
             button_gausblur.UseVisualStyleBackColor = true;
+            button_gausblur.Click += button_gausblur_Click;
             // 
             // button_tvreg
             // 
