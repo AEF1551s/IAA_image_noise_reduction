@@ -25,9 +25,9 @@ namespace IAA_image_noise_reduction
             pictureBox2.Image = ImageClass.DrawImage(ImageClass.img_original);
         }
 
-        private void button_gausblur_Click(object sender, EventArgs e)
+        private void trackBar1_Scroll(object sender, EventArgs e)
         {
-
+            label1.Text = Convert.ToString(trackBar1.Value);
         }
     }
 }

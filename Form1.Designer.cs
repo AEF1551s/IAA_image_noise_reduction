@@ -35,6 +35,9 @@
             openToolStripMenuItem = new ToolStripMenuItem();
             openFileDialog1 = new OpenFileDialog();
             algoritm_group_box = new GroupBox();
+            label2 = new Label();
+            label1 = new Label();
+            trackBar1 = new TrackBar();
             button_nlmeans = new Button();
             button_gausblur = new Button();
             button_tvreg = new Button();
@@ -42,6 +45,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             menuStrip1.SuspendLayout();
+            algoritm_group_box.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)trackBar1).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -91,12 +96,41 @@
             // 
             // algoritm_group_box
             // 
+            algoritm_group_box.BackColor = SystemColors.WindowFrame;
+            algoritm_group_box.Controls.Add(label2);
+            algoritm_group_box.Controls.Add(label1);
+            algoritm_group_box.Controls.Add(trackBar1);
             algoritm_group_box.Location = new Point(955, 177);
             algoritm_group_box.Name = "algoritm_group_box";
             algoritm_group_box.Size = new Size(252, 293);
             algoritm_group_box.TabIndex = 7;
             algoritm_group_box.TabStop = false;
             algoritm_group_box.Text = "Algoritma parametri";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(162, 40);
+            label2.Name = "label2";
+            label2.Size = new Size(25, 15);
+            label2.TabIndex = 2;
+            label2.Text = "σ - ";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(193, 40);
+            label1.Name = "label1";
+            label1.Size = new Size(0, 15);
+            label1.TabIndex = 1;
+            // 
+            // trackBar1
+            // 
+            trackBar1.Location = new Point(25, 40);
+            trackBar1.Name = "trackBar1";
+            trackBar1.Size = new Size(118, 45);
+            trackBar1.TabIndex = 0;
+            trackBar1.Scroll += trackBar1_Scroll;
             // 
             // button_nlmeans
             // 
@@ -115,7 +149,6 @@
             button_gausblur.TabIndex = 9;
             button_gausblur.Text = "Gaussian blur ";
             button_gausblur.UseVisualStyleBackColor = true;
-            button_gausblur.Click += button_gausblur_Click;
             // 
             // button_tvreg
             // 
@@ -132,13 +165,14 @@
             button4.Name = "button4";
             button4.Size = new Size(122, 46);
             button4.TabIndex = 11;
-            button4.Text = "button4";
+            button4.Text = "Wiener Filtering";
             button4.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.MenuBar;
             ClientSize = new Size(1234, 512);
             Controls.Add(button4);
             Controls.Add(button_tvreg);
@@ -155,6 +189,9 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            algoritm_group_box.ResumeLayout(false);
+            algoritm_group_box.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)trackBar1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -172,5 +209,8 @@
         private Button button_gausblur;
         private Button button_tvreg;
         private Button button4;
+        private TrackBar trackBar1;
+        private Label label1;
+        private Label label2;
     }
 }
