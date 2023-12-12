@@ -73,11 +73,14 @@ Metodes mērķis ir izkliedēt attēlu tā, lai samazinās attēla troksnis, kon
 Abi vienādojumi:
 ![vienas_dimensijas_vienadojums](https://i.stack.imgur.com/lXRKO.png)
 </n>
+</n>
 x - attālums no sākuma punkta horizontālajā asī
 y - attālums no sākuma punkta vertikālajā asī
 σ - gausa sadalijuma standartnovirze = ievada lietotājs
 
 Trokšņa uzlabošanas piemērs:
+</n>
+</n>
 ![gaussian_blur_example](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Halftone%2C_Gaussian_Blur.jpg/220px-Halftone%2C_Gaussian_Blur.jpg)
 
 ## Impemetācija
@@ -87,4 +90,4 @@ Vienas dimensijas vienādojumam attēlam tiek pāriets   horizontāli vai vertik
 
 Divas dimensijas vienādojumam attēlam tiek pāriets pāri tikai vienu reizi.
 
-Pāris avotos,[piemēram],(https://www.w3.org/Talks/2012/0125-HTML-Tehran/Gaussian.xhtml)  ir teikts, ka pirmais variants ir ātrāks, jo veic mazāk aprēķinus. 
+Pāris avotos,[piemēram](https://www.w3.org/Talks/2012/0125-HTML-Tehran/Gaussian.xhtml),  ir teikts, ka pirmais variants ir ātrāks, jo veic mazāk aprēķinus. 
