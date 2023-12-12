@@ -24,5 +24,19 @@ namespace IAA_image_noise_reduction
             ImageClass.ReadImage(bmp);
             pictureBox2.Image = ImageClass.DrawImage(ImageClass.img_original);
         }
+
+        //Algoritmu parametru attēlošana
+        //NL Means
+        private void button_nlmeans_Click(object sender, EventArgs e)
+        {
+            nl_group_box.Visible = true;
+            button_denoise_apply.Enabled = true;
+        }
+
+        //Total variation regularization
+
+        //Gaussian blur
+
+        //Wiener Filtering
     }
 }
