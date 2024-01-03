@@ -27,7 +27,16 @@ namespace IAA_image_noise_reduction
 
         //Algoritmu parametru attēlošana
         //Helper metode
-        private void show_groupbox(int box) //0 for NL Means, 1 for TV regularization, 3 for Gaussian Blur, 4 for Weiner filter
+
+        /// <summary>
+        /// Displays the specified group box based on the given parameter representing different image processing techniques or filters.
+        /// </summary>
+        /// <param name="box">An integer value representing the type of group box to be displayed:
+        /// 0 - NL Means,
+        /// 1 - TV Regularization,
+        /// 2 - Gaussian Blur,
+        /// 3 - Weiner Filter.</param>
+        private void show_groupbox(int box)
         {
             switch (box)
             {
@@ -56,7 +65,7 @@ namespace IAA_image_noise_reduction
         //NL Means
         private void button_nlmeans_Click(object sender, EventArgs e)
         {
-            nl_group_box.Visible = true;
+            show_groupbox(0);
             button_denoise_apply.Enabled = true;
         }
 
