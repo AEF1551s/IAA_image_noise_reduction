@@ -26,6 +26,33 @@ namespace IAA_image_noise_reduction
         }
 
         //Algoritmu parametru attēlošana
+        //Helper metode
+        private void show_groupbox(int box) //0 for NL Means, 1 for TV regularization, 3 for Gaussian Blur, 4 for Weiner filter
+        {
+            switch (box)
+            {
+                case 0:
+                    nl_group_box.Visible = true;
+                    //ALL other groupbox.Visible = false;
+                    break;
+                case 1:
+                    //tv reg box.Visible = true;
+                    //ALL other groupbox.Visible = false;
+                    break;
+                case 2:
+                    //Gaussianblur_box.Visible = true;
+                    //ALL other groupbox.Visible = false;
+                    break;
+                case 3:
+                    //Weiner filter.Visible = true;
+                    //ALL other groupbox.Visible = false;
+                    break;
+                default:
+                    break;
+
+            }
+            return;
+        }
         //NL Means
         private void button_nlmeans_Click(object sender, EventArgs e)
         {
