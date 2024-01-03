@@ -13,6 +13,11 @@ namespace IAA_image_noise_reduction
         public PixelRGB[,] img_original;
         public PixelRGB[,] img_rgb;
 
+        //All algorithms
+        public NL_Means NL_Means = new NL_Means();
+
+   
+
         public void ReadImage(Bitmap bmp)
         {
             img_original = new PixelRGB[bmp.Width, bmp.Height];
@@ -72,5 +77,14 @@ namespace IAA_image_noise_reduction
             bmp.UnlockBits(bmpData);
             return bmp;
         }
+
+        
+        //NL Means
+
+        //Total variation regularization
+
+        //Gaussian blur
+
+        //Wiener Filtering
     }
 }
