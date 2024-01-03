@@ -6,7 +6,7 @@ namespace IAA_image_noise_reduction
     public partial class Form1 : Form
     {
         private ImageClass ImageClass = new ImageClass();
-
+        
         public Form1()
         {
             InitializeComponent();
@@ -63,6 +63,7 @@ namespace IAA_image_noise_reduction
             return;
         }
         //NL Means
+        //TODO: Add check (arrow and cross) for valid chosen parameter values
         private void button_nlmeans_Click(object sender, EventArgs e)
         {
             show_groupbox(0);
