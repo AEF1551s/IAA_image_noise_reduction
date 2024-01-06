@@ -6,7 +6,7 @@ namespace IAA_image_noise_reduction
     public partial class Form1 : Form
     {
         private ImageClass ImageClass = new ImageClass();
-        
+
         public Form1()
         {
             InitializeComponent();
@@ -68,6 +68,11 @@ namespace IAA_image_noise_reduction
         {
             show_groupbox(0);
             button_denoise_apply.Enabled = true;
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
 
         //Total variation regularization

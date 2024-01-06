@@ -53,13 +53,16 @@
             label_nl_patchsize = new Label();
             button_denoise_apply = new Button();
             button_nlmeans = new Button();
-            button_gausblur = new Button();
+            button_gblur = new Button();
             button_tvreg = new Button();
             button4 = new Button();
+            gblur_groupbox = new GroupBox();
+            label_gblur_params = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             menuStrip1.SuspendLayout();
             nl_group_box.SuspendLayout();
+            gblur_groupbox.SuspendLayout();
             SuspendLayout();
             // 
             // pictureBox1
@@ -269,14 +272,14 @@
             button_nlmeans.UseVisualStyleBackColor = true;
             button_nlmeans.Click += button_nlmeans_Click;
             // 
-            // button_gausblur
+            // button_gblur
             // 
-            button_gausblur.Location = new Point(1085, 70);
-            button_gausblur.Name = "button_gausblur";
-            button_gausblur.Size = new Size(122, 46);
-            button_gausblur.TabIndex = 9;
-            button_gausblur.Text = "Gaussian blur ";
-            button_gausblur.UseVisualStyleBackColor = true;
+            button_gblur.Location = new Point(1085, 70);
+            button_gblur.Name = "button_gblur";
+            button_gblur.Size = new Size(122, 46);
+            button_gblur.TabIndex = 9;
+            button_gblur.Text = "Gaussian blur ";
+            button_gblur.UseVisualStyleBackColor = true;
             // 
             // button_tvreg
             // 
@@ -296,15 +299,36 @@
             button4.Text = "button4";
             button4.UseVisualStyleBackColor = true;
             // 
+            // gblur_groupbox
+            // 
+            gblur_groupbox.Controls.Add(label_gblur_params);
+            gblur_groupbox.Location = new Point(955, 177);
+            gblur_groupbox.Name = "gblur_groupbox";
+            gblur_groupbox.Size = new Size(252, 248);
+            gblur_groupbox.TabIndex = 8;
+            gblur_groupbox.TabStop = false;
+            gblur_groupbox.Text = "Algoritma parametri";
+            gblur_groupbox.Visible = false;
+            // 
+            // label_gblur_params
+            // 
+            label_gblur_params.AutoSize = true;
+            label_gblur_params.Location = new Point(19, 23);
+            label_gblur_params.Name = "label_gblur_params";
+            label_gblur_params.Size = new Size(140, 15);
+            label_gblur_params.TabIndex = 0;
+            label_gblur_params.Text = "Gaussian Blur Parameters";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1234, 512);
+            Controls.Add(gblur_groupbox);
             Controls.Add(button_denoise_apply);
             Controls.Add(button4);
             Controls.Add(button_tvreg);
-            Controls.Add(button_gausblur);
+            Controls.Add(button_gblur);
             Controls.Add(button_nlmeans);
             Controls.Add(nl_group_box);
             Controls.Add(pictureBox2);
@@ -319,6 +343,8 @@
             menuStrip1.PerformLayout();
             nl_group_box.ResumeLayout(false);
             nl_group_box.PerformLayout();
+            gblur_groupbox.ResumeLayout(false);
+            gblur_groupbox.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -333,7 +359,7 @@
         private OpenFileDialog openFileDialog1;
         private GroupBox nl_group_box;
         private Button button_nlmeans;
-        private Button button_gausblur;
+        private Button button_gblur;
         private Button button_tvreg;
         private Button button4;
         private ToolStripMenuItem saveToolStripMenuItem;
@@ -353,5 +379,7 @@
         private ToolStripMenuItem deleteToolStripMenuItem;
         private ToolStripMenuItem toolStripMenuItem1;
         private Button button_denoise_apply;
+        private GroupBox gblur_groupbox;
+        private Label label_gblur_params;
     }
 }
