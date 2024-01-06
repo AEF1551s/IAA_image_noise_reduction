@@ -42,8 +42,7 @@
             deleteToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem1 = new ToolStripMenuItem();
             openFileDialog1 = new OpenFileDialog();
-            nl_group_box = new GroupBox();
-            comboBox_nl_tresh = new ComboBox();
+            nl_groupbox = new GroupBox();
             comboBox_nl_area = new ComboBox();
             comboBox_nl_sigma = new ComboBox();
             comboBox_nl_patchsize = new ComboBox();
@@ -51,15 +50,25 @@
             label_nl_area = new Label();
             label_nl_sigma = new Label();
             label_nl_patchsize = new Label();
+            comboBox_nl_tresh = new ComboBox();
+            tvreg_groupbox = new GroupBox();
+            label_tvreg_params = new Label();
+            gblur_groupbox = new GroupBox();
+            label_gblur_params = new Label();
+            wfilter_groupbox = new GroupBox();
+            label_wfilter_params = new Label();
             button_denoise_apply = new Button();
             button_nlmeans = new Button();
-            button_gausblur = new Button();
+            button_gblur = new Button();
             button_tvreg = new Button();
-            button4 = new Button();
+            button_wfilter = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             menuStrip1.SuspendLayout();
-            nl_group_box.SuspendLayout();
+            nl_groupbox.SuspendLayout();
+            tvreg_groupbox.SuspendLayout();
+            gblur_groupbox.SuspendLayout();
+            wfilter_groupbox.SuspendLayout();
             SuspendLayout();
             // 
             // pictureBox1
@@ -155,33 +164,23 @@
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
-            // nl_group_box
+            // nl_groupbox
             // 
-            nl_group_box.Controls.Add(comboBox_nl_tresh);
-            nl_group_box.Controls.Add(comboBox_nl_area);
-            nl_group_box.Controls.Add(comboBox_nl_sigma);
-            nl_group_box.Controls.Add(comboBox_nl_patchsize);
-            nl_group_box.Controls.Add(label_nl_tresh);
-            nl_group_box.Controls.Add(label_nl_area);
-            nl_group_box.Controls.Add(label_nl_sigma);
-            nl_group_box.Controls.Add(label_nl_patchsize);
-            nl_group_box.Location = new Point(955, 177);
-            nl_group_box.Name = "nl_group_box";
-            nl_group_box.Size = new Size(252, 248);
-            nl_group_box.TabIndex = 7;
-            nl_group_box.TabStop = false;
-            nl_group_box.Text = "Algoritma parametri";
-            nl_group_box.Visible = false;
-            // 
-            // comboBox_nl_tresh
-            // 
-            comboBox_nl_tresh.FormattingEnabled = true;
-            comboBox_nl_tresh.Items.AddRange(new object[] { "0.1", "0.2", "0.3", "0.4", "0.5", "0.6", "0.7", "0.8", "0.9", "0.10", "0.11", "0.12", "0.13", "0.14", "0.15", "0.16", "0.17", "0.18", "0.19", "0.20", "0.21", "0.22", "0.23", "0.24", "0.25", "0.26", "0.27", "0.28", "0.29", "0.30", "0.31", "0.32", "0.33", "0.34", "0.35", "0.36", "0.37", "0.38", "0.39", "0.40", "0.41", "0.42", "0.43", "0.44", "0.45", "0.46", "0.47", "0.48", "0.49", "0.50", "0.51", "0.52", "0.53", "0.54", "0.55", "0.56", "0.57", "0.58", "0.59", "0.60", "0.61", "0.62", "0.63", "0.64", "0.65", "0.66", "0.67", "0.68", "0.69", "0.70", "0.71", "0.72", "0.73", "0.74", "0.75", "0.76", "0.77", "0.78", "0.79", "0.80", "0.81", "0.82", "0.83", "0.84", "0.85", "0.86", "0.87", "0.88", "0.89", "0.90", "0.91", "0.92", "0.93", "0.94", "0.95", "0.96", "0.97", "0.98", "0.99", "0.100" });
-            comboBox_nl_tresh.Location = new Point(19, 206);
-            comboBox_nl_tresh.Name = "comboBox_nl_tresh";
-            comboBox_nl_tresh.Size = new Size(121, 23);
-            comboBox_nl_tresh.TabIndex = 7;
-            comboBox_nl_tresh.Text = "0.5";
+            nl_groupbox.Controls.Add(comboBox_nl_area);
+            nl_groupbox.Controls.Add(comboBox_nl_sigma);
+            nl_groupbox.Controls.Add(comboBox_nl_patchsize);
+            nl_groupbox.Controls.Add(label_nl_tresh);
+            nl_groupbox.Controls.Add(label_nl_area);
+            nl_groupbox.Controls.Add(label_nl_sigma);
+            nl_groupbox.Controls.Add(label_nl_patchsize);
+            nl_groupbox.Controls.Add(comboBox_nl_tresh);
+            nl_groupbox.Location = new Point(955, 185);
+            nl_groupbox.Name = "nl_groupbox";
+            nl_groupbox.Size = new Size(252, 248);
+            nl_groupbox.TabIndex = 7;
+            nl_groupbox.TabStop = false;
+            nl_groupbox.Text = "Algoritma parametri";
+            nl_groupbox.Visible = false;
             // 
             // comboBox_nl_area
             // 
@@ -249,6 +248,76 @@
             label_nl_patchsize.TabIndex = 0;
             label_nl_patchsize.Text = "Patch Size";
             // 
+            // comboBox_nl_tresh
+            // 
+            comboBox_nl_tresh.FormattingEnabled = true;
+            comboBox_nl_tresh.Items.AddRange(new object[] { "0.1", "0.2", "0.3", "0.4", "0.5", "0.6", "0.7", "0.8", "0.9", "0.10", "0.11", "0.12", "0.13", "0.14", "0.15", "0.16", "0.17", "0.18", "0.19", "0.20", "0.21", "0.22", "0.23", "0.24", "0.25", "0.26", "0.27", "0.28", "0.29", "0.30", "0.31", "0.32", "0.33", "0.34", "0.35", "0.36", "0.37", "0.38", "0.39", "0.40", "0.41", "0.42", "0.43", "0.44", "0.45", "0.46", "0.47", "0.48", "0.49", "0.50", "0.51", "0.52", "0.53", "0.54", "0.55", "0.56", "0.57", "0.58", "0.59", "0.60", "0.61", "0.62", "0.63", "0.64", "0.65", "0.66", "0.67", "0.68", "0.69", "0.70", "0.71", "0.72", "0.73", "0.74", "0.75", "0.76", "0.77", "0.78", "0.79", "0.80", "0.81", "0.82", "0.83", "0.84", "0.85", "0.86", "0.87", "0.88", "0.89", "0.90", "0.91", "0.92", "0.93", "0.94", "0.95", "0.96", "0.97", "0.98", "0.99", "0.100" });
+            comboBox_nl_tresh.Location = new Point(19, 206);
+            comboBox_nl_tresh.Name = "comboBox_nl_tresh";
+            comboBox_nl_tresh.Size = new Size(121, 23);
+            comboBox_nl_tresh.TabIndex = 7;
+            comboBox_nl_tresh.Text = "0.5";
+            // 
+            // tvreg_groupbox
+            // 
+            tvreg_groupbox.Controls.Add(label_tvreg_params);
+            tvreg_groupbox.Location = new Point(83, 168);
+            tvreg_groupbox.Name = "tvreg_groupbox";
+            tvreg_groupbox.Size = new Size(252, 248);
+            tvreg_groupbox.TabIndex = 9;
+            tvreg_groupbox.TabStop = false;
+            tvreg_groupbox.Text = "Algoritma parametri";
+            tvreg_groupbox.Visible = false;
+            // 
+            // label_tvreg_params
+            // 
+            label_tvreg_params.AutoSize = true;
+            label_tvreg_params.Location = new Point(19, 23);
+            label_tvreg_params.Name = "label_tvreg_params";
+            label_tvreg_params.Size = new Size(142, 15);
+            label_tvreg_params.TabIndex = 0;
+            label_tvreg_params.Text = "TV Regulation Parameters";
+            // 
+            // gblur_groupbox
+            // 
+            gblur_groupbox.Controls.Add(label_gblur_params);
+            gblur_groupbox.Location = new Point(359, 168);
+            gblur_groupbox.Name = "gblur_groupbox";
+            gblur_groupbox.Size = new Size(252, 248);
+            gblur_groupbox.TabIndex = 8;
+            gblur_groupbox.TabStop = false;
+            gblur_groupbox.Text = "Algoritma parametri";
+            gblur_groupbox.Visible = false;
+            // 
+            // label_gblur_params
+            // 
+            label_gblur_params.AutoSize = true;
+            label_gblur_params.Location = new Point(19, 23);
+            label_gblur_params.Name = "label_gblur_params";
+            label_gblur_params.Size = new Size(140, 15);
+            label_gblur_params.TabIndex = 0;
+            label_gblur_params.Text = "Gaussian Blur Parameters";
+            // 
+            // wfilter_groupbox
+            // 
+            wfilter_groupbox.Controls.Add(label_wfilter_params);
+            wfilter_groupbox.Location = new Point(628, 168);
+            wfilter_groupbox.Name = "wfilter_groupbox";
+            wfilter_groupbox.Size = new Size(252, 248);
+            wfilter_groupbox.TabIndex = 10;
+            wfilter_groupbox.TabStop = false;
+            wfilter_groupbox.Text = "Algoritma parametri";
+            wfilter_groupbox.Visible = false;
+            // 
+            // label_wfilter_params
+            // 
+            label_wfilter_params.AutoSize = true;
+            label_wfilter_params.Location = new Point(19, 23);
+            label_wfilter_params.Name = "label_wfilter_params";
+            label_wfilter_params.Size = new Size(133, 15);
+            label_wfilter_params.TabIndex = 0;
+            label_wfilter_params.Text = "Weiner filter parameters";
+            // 
             // button_denoise_apply
             // 
             button_denoise_apply.Enabled = false;
@@ -269,14 +338,15 @@
             button_nlmeans.UseVisualStyleBackColor = true;
             button_nlmeans.Click += button_nlmeans_Click;
             // 
-            // button_gausblur
+            // button_gblur
             // 
-            button_gausblur.Location = new Point(1085, 70);
-            button_gausblur.Name = "button_gausblur";
-            button_gausblur.Size = new Size(122, 46);
-            button_gausblur.TabIndex = 9;
-            button_gausblur.Text = "Gaussian blur ";
-            button_gausblur.UseVisualStyleBackColor = true;
+            button_gblur.Location = new Point(1085, 70);
+            button_gblur.Name = "button_gblur";
+            button_gblur.Size = new Size(122, 46);
+            button_gblur.TabIndex = 9;
+            button_gblur.Text = "Gaussian Blur ";
+            button_gblur.UseVisualStyleBackColor = true;
+            button_gblur.Click += button_gblur_Click;
             // 
             // button_tvreg
             // 
@@ -286,27 +356,32 @@
             button_tvreg.TabIndex = 10;
             button_tvreg.Text = "TV Regulation";
             button_tvreg.UseVisualStyleBackColor = true;
+            button_tvreg.Click += button_tvreg_Click;
             // 
-            // button4
+            // button_wfilter
             // 
-            button4.Location = new Point(1085, 125);
-            button4.Name = "button4";
-            button4.Size = new Size(122, 46);
-            button4.TabIndex = 11;
-            button4.Text = "button4";
-            button4.UseVisualStyleBackColor = true;
+            button_wfilter.Location = new Point(1085, 125);
+            button_wfilter.Name = "button_wfilter";
+            button_wfilter.Size = new Size(122, 46);
+            button_wfilter.TabIndex = 11;
+            button_wfilter.Text = "Wiener Filtering";
+            button_wfilter.UseVisualStyleBackColor = true;
+            button_wfilter.Click += button_wfilter_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1234, 512);
+            Controls.Add(wfilter_groupbox);
+            Controls.Add(tvreg_groupbox);
+            Controls.Add(gblur_groupbox);
+            Controls.Add(nl_groupbox);
             Controls.Add(button_denoise_apply);
-            Controls.Add(button4);
+            Controls.Add(button_wfilter);
             Controls.Add(button_tvreg);
-            Controls.Add(button_gausblur);
+            Controls.Add(button_gblur);
             Controls.Add(button_nlmeans);
-            Controls.Add(nl_group_box);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(menuStrip1);
@@ -317,8 +392,14 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
-            nl_group_box.ResumeLayout(false);
-            nl_group_box.PerformLayout();
+            nl_groupbox.ResumeLayout(false);
+            nl_groupbox.PerformLayout();
+            tvreg_groupbox.ResumeLayout(false);
+            tvreg_groupbox.PerformLayout();
+            gblur_groupbox.ResumeLayout(false);
+            gblur_groupbox.PerformLayout();
+            wfilter_groupbox.ResumeLayout(false);
+            wfilter_groupbox.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -331,11 +412,11 @@
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem openToolStripMenuItem;
         private OpenFileDialog openFileDialog1;
-        private GroupBox nl_group_box;
+        private GroupBox nl_groupbox;
         private Button button_nlmeans;
-        private Button button_gausblur;
+        private Button button_gblur;
         private Button button_tvreg;
-        private Button button4;
+        private Button button_wfilter;
         private ToolStripMenuItem saveToolStripMenuItem;
         private ToolStripMenuItem aboutToolStripMenuItem;
         private ToolStripMenuItem exitToolStripMenuItem;
@@ -353,5 +434,11 @@
         private ToolStripMenuItem deleteToolStripMenuItem;
         private ToolStripMenuItem toolStripMenuItem1;
         private Button button_denoise_apply;
+        private GroupBox gblur_groupbox;
+        private Label label_gblur_params;
+        private GroupBox tvreg_groupbox;
+        private Label label_tvreg_params;
+        private GroupBox wfilter_groupbox;
+        private Label label_wfilter_params;
     }
 }
