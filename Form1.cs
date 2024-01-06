@@ -26,14 +26,15 @@ namespace IAA_image_noise_reduction
             if (openFileDialog1.ShowDialog() != DialogResult.OK) { return; }
             //Pirmais attēls tiek nokopēts 
             pictureBox1.Image = Image.FromFile(openFileDialog1.FileName);
+
             //Otrais attēls tiek ievietots kā pikseļu komponentu masīvs
             Bitmap bmp = (Bitmap)pictureBox1.Image.Clone();
             ImageClass.ReadImage(bmp);
             pictureBox2.Image = ImageClass.DrawImage(ImageClass.img_original);
+            button_denoise_apply.Enabled = check_if_pic_loaded();
         }
 
         //Algoritmu parametru attēlošana
-        //Helper metode
 
         /// <summary>
         /// Displays the specified group box based on the given parameter representing different image processing techniques or filters.
@@ -71,69 +72,46 @@ namespace IAA_image_noise_reduction
             return;
         }
 
-        //Helper function, to enable Apply button, when all algorithm parameters are valid
-        private bool enable_apply_button(int mode)
-        {
-            bool enable = false;
-
-            //Check if picture is loaded
-            if (pictureBox2.Image == null)
-            { 
-                return false; 
-            }
-            //Check if all mode parameters are valid
-            //TODO: Fill all algorithm paramter checks
-            switch (mode)
-            {
-                case 0:
-                    enable = true;
-                    break;
-                case 1:
-                    enable = true;
-                    break;
-                case 2:
-                    enable = true;
-                    break;
-                case 3:
-                    enable = true;
-                    break;
-                default:
-                    break;
-
-            }
-
-            return enable;
-        }
         //NL Means
         //TODO: Add check (arrow and cross) for valid chosen parameter values
         private void button_nlmeans_Click(object sender, EventArgs e)
         {
-
             show_groupbox(0);
-            button_denoise_apply.Enabled = enable_apply_button(0);
+            button_denoise_apply.Enabled = check_if_pic_loaded();
         }
         //Total variation regularization
         private void button_tvreg_Click(object sender, EventArgs e)
         {
             show_groupbox(1);
-            button_denoise_apply.Enabled = enable_apply_button(1);
+            button_denoise_apply.Enabled = check_if_pic_loaded();
         }
 
         //Gaussian blur
         private void button_gblur_Click(object sender, EventArgs e)
         {
             show_groupbox(2);
-            button_denoise_apply.Enabled = enable_apply_button(2);
+            button_denoise_apply.Enabled = check_if_pic_loaded();
         }
 
         //Wiener Filtering
         private void button_wfilter_Click(object sender, EventArgs e)
         {
             show_groupbox(3);
-            button_denoise_apply.Enabled = enable_apply_button(3);
+            button_denoise_apply.Enabled = check_if_pic_loaded();
         }
 
-
-
+        //Helper metodes
+        //Check if picture is loaded
+        private bool check_if_pic_loaded()
+        {
+            if (pictureBox2.Image == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }
