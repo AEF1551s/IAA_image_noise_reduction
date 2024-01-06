@@ -19,6 +19,8 @@ Kopā tiek realizēti 4 dažādi trokšņu noņemšanas algoritmi attēliem:
 
 ## *Total Variation Denoising* algoritma galvenie soļi
 
+![image](https://github.com/AEF1551s/IAA_image_noise_reduction/assets/89861525/cd844f05-355c-4494-882b-55acb514b1a3)
+
 Total Variation Denoising is a digital image processing algorithm designed to reduce noise in images while preserving important features and edges. The algorithm follows a series of key steps to achieve effective denoising.
 
 1. Load Noisy Image:
